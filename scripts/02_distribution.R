@@ -41,11 +41,15 @@ med <- wquantile(x, w, 0.5)
 p90 <- wquantile(x, w, 0.9)
 
 n_students <- nrow(students)
-top <- max(ggplot_build(p)$data[[1]]$density)
 
-p <- ggplot(inrange, aes(x = logx, weight = hhweight)) +
+base <- ggplot(inrange, aes(x = logx, weight = hhweight)) +
   geom_histogram(aes(y = after_stat(density)),
-                 binwidth = 0.1, boundary = 2, closed = "left") +
+                 binwidth = 0.1, boundary = 2, closed = "left")
+
+top <- max(ggplot_build(base)$data[[1]]$density)
+print(top)   # should be a number around 1.3, not -Inf
+
+p <- base +
   geom_vline(xintercept = log10(c(med, p90)), linetype = "dashed") +
   annotate("text", x = log10(med), y = top * 1.12,
            label = paste0("Median: Rs ", format(med, big.mark = ",")),
