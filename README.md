@@ -87,7 +87,8 @@ The band with the largest gap is **55–59** (35.8 percentage points).
  
 ## Makeover (Question 4)
  
-Default: `figures/default.svg` | Redesign: `figures/literacy_by_age.svg`
+![](figures/default.svg)
+![](figures/literacy_by_age.svg)
  
 **Explanation:** The default drew 24,630 raw points on two heights, so overplotting hid how many people each dot held. I replaced them with weighted conditional means by age band, so each marker shows a rate on a common aligned scale, the most accurate perceptual channel. Second, I split women and men and labelled the lines directly, removing the legend (data–ink). Third, I set the axis to 0–100% with percent labels and plotted bands at midpoints. The default shows individual ages and every observation; my redesign hides variation within five-year bands and the counts behind each rate.
  
